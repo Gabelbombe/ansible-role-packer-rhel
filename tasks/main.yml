@@ -43,6 +43,7 @@
 
 # Vagrant SSH configuration.
 - name: Configure Vagrant .ssh directory.
+  become: true
   file:
     path: /home/vagrant/.ssh
     state: directory
