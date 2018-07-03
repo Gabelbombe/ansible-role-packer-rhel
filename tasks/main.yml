@@ -41,9 +41,16 @@
     - { regexp: '^UseDNS', line: 'UseDNS no' }
     - { regexp: '^GSSAPIAuthentication', line: 'GSSAPIAuthentication no' }
 
+- name: Add the user 'vagrant'
+  user:
+    name: vagrant
+    groups: vagrant
+    shell: /bin/bash
+    expires: 1422403387
+    state: present
+
 # Vagrant SSH configuration.
 - name: Configure Vagrant .ssh directory.
-  become: true
   file:
     path: /home/vagrant/.ssh
     state: directory
